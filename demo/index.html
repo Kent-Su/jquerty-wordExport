@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wordExport</title>
+</head>
+<body>
+    <!--生成word的部分-->
+    <div id="export-content">
+        <!--根据h1-h6,p,&nbsp;生成相应的样式,若想使布局好看的话推荐用table布局-->
+        <h1>标题</h1>
+        <h2>小标题</h2>
+        <!--段落-->
+        <p>最近，一直在画原型，遇到问题解决问题，有时间我会记录一下分享给大家，希望能帮到你。在app原型设计时，百分比环形图是我们经常要用到的一种图形，那么用axure如何设计呢，可能你会去网上截个图代替一下，其实没必要，用axure可以很轻松的画出...</p>
+        <!--word中的空格-->
+        <p>&nbsp;&nbsp;&nbsp;</p>
+        <!--只能导入静态资源img，导入base64图片会导致word文件打不开-->
+        <img src="img/chart.png" alt="">
+        <!--表格-->
+        <table border="1">
+            <tr><td>姓名</td><td>年龄</td></tr>
+            <tr><td>小明</td><td>12</td></tr>
+            <tr><td>小红</td><td>25</td></tr>
+        </table>
+    </div>
+    <!--按钮-->
+    <button class="btn">转成word</button>
+
+
+    <script type="text/javascript" src="../src/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../src/FileSaver.js"></script>
+    <!--需要先引入jq和FileSaver.js-->
+    <script type="text/javascript" src="../src/jquery.wordexport.js"></script>
+
+
+    <script>
+        $('.btn').on('click',function () {
+            //生成word
+            $("#export-content").wordExport('FileName');
+        })
+
+    </script>
+</body>
+</html>
